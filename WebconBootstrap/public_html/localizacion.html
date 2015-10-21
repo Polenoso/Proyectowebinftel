@@ -31,14 +31,24 @@
         <script src="http://maps.googleapis.com/maps/api/js"></script>
         <script>
             function initialize() {
+            var myLatLng = {lat: -25.363, lng: 131.044};
             var mapProp = {
-            center:new google.maps.LatLng(51.508742,-0.120850),
-            zoom:10,
-              mapTypeId:google.maps.MapTypeId.ROADMAP
+            center:new google.maps.LatLng(myLatLng.lat, myLatLng.lng),
+            zoom:15,
+              mapTypeId:google.maps.MapTypeId.Satellite
               };
              var map=new google.maps.Map(document.getElementById("map"), mapProp);
+             
+             var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+          
+            });
              }
             google.maps.event.addDomListener(window, 'load', initialize);
+            
+            
         </script>
 
     </head>
@@ -81,23 +91,9 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-3">
-          <h2>Twitter</h2>
-          <a class="twitter-timeline" data-widget-id="600720083413962752" href="https://twitter.com/TwitterDev" height="400"  data-chrome="nofooter" data-link-color="#820bbb"data-border-color="#a80000">
-Tweets by @TwitterDev
-<script>
-    twttr.widgets.createTimeline(
-        "600724936517242880",
-        document.getElementById("container"),
-        {
-        listOwnerScreenName: "twitter",
-        listSlug: "official-twitter-accts"
-        }
-        );
-</script>
-</a>
+        
         </div>
-        <div class="col-md-6">
+        <div class="col-md-9">
           
             <div id="map" style="width:500px; height:500px"></div>
             
